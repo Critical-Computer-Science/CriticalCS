@@ -1,3 +1,4 @@
+% Authors: Jesse Ellin and Sai Avula
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
@@ -9,8 +10,6 @@
 \usepackage{hyperref}
 
 \usepackage{color}
-
-\usepackage[coloroftodonotes]{todonotes}
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -74,7 +73,7 @@
 }
 
 
-\title{\textbf{Coronavirus/CoViD-19 Data Analysis}}
+\title{\textbf{Coronavirus/Covid-19 Data Analysis}}
 \author{\textit{Dictionary data structure, TKinter data visualization, ethics and social consequences}\\\textit{of medical data and data ethics, basic statistical analysis}}
 \date{Due date}
 
@@ -169,8 +168,15 @@ Of course, your data will be much larger than this and might not be so clearly d
     findAll[dataID]=[data if data within constraints for data in x]
     \end{lstlisting}
 \end{itemize}
-
+It is \textbf{VERY IMPORTANT} that your functions have these exact names. If they don't, the backend we're using to convert the dictionaries to graphs won't work.
 \begin{Part}{TKinterface}{Design and implement a UI with TKinter to display your analysis}
+
+\null\quad\quad For this final part of the homework, you will be implementing a TKinter interface that will display your graphs. In the provided files, you will see two files; one of these files contains a MatPlotLib backend that will be used to call your functions and provide the graphs to the TKinter interface; the other is the TKinter interface skeleton that you are to implement.\\
+\null\quad\quad You are to follow the instructions as laid out in the comments in the provided code. Please make sure you meet these specifications exactly. Any variance can cause bugs in your code that can be hard to debug.
+
+\end{Part}\newpage
+\begin{Part}{README}{Final Thoughts}
+\null\quad\quad Please respond to the questions in the provided README.txt file and submit it along with your code.
 \end{Part}
 
 \end{document}
