@@ -84,9 +84,15 @@
 \maketitle
 
 \begin{Part}{Prepping the data}{Pull the data from the CSV file and prep it for analysis}
-\null\quad\quad The data provided in the file \textbf{COVID19.csv} contains data in a time-frame from January 22, 2020 to February 8, 2020 that covers confirmed cases, deaths, and recovered. Taken from the README of this dataset: “There are a total of 60371 confirmed cases worldwide, with 59,804 in Mainland China. Sadly at least 1367 people have died from this virus.” This dataset captures the most recent data from global statistics in a CSV containing data for the whole world on coronavirus.\\
-\null\quad\quad As you can probably guess, the data is now longer up to date. The goal of this homework is not to do a real-time analysis of the current situation, but rather to use a current and very pressing situation to look at how data and numbers can be manipulated to portray different things.\bigskip\\
-\null\quad\quad For this part of the homework, you will be expected to do the following:
+
+\null\quad\quad
+The data provided in the file \textbf{COVID19.csv} contains data in a time-frame from January 22, 2020 to February 8, 2020 that contains confirmed cases, deaths, and recoveries of CoViD-19.
+Taken from the README of this dataset: “There are a total of 60,371 confirmed cases worldwide, with 59,804 in Mainland China. Sadly at least 1367 people have died from this virus.”\\
+
+This dataset captures the most recent data (as of this writing) from global outbreak information.
+As you can probably guess, the data is now outdated. The goal of this homework is not to do a real-time analysis of the current situation, but rather to use a relevant and grave situation to examine how data and numbers can be manipulated to portray different things.\\
+
+For this part of the homework, you will be expected to do the following:
 \begin{itemize}
     \item Read the data in from the CSV file
     \item Create a nested dictionary and store the data using the following categories:
@@ -95,14 +101,14 @@
         \item Date
         \item Confirmed
         \item Deaths
-        \item Recovered
+        \item Recoveries
     \end{itemize}
 \end{itemize}
 Example:
 \begin{lstlisting}[language=Python]
 dataPointID = 0
 dataPoints_byDay = dict()
-dataPoints_byDay[dataPointID]= { "Date": "01/22", "Confirmed": 555, "Deaths": 0, "Recovered": 0}
+dataPoints_byDay[dataPointID]= { "Date": "01/22", "Confirmed": 555, "Deaths": 0, "Recoveries": 0}
 \end{lstlisting}
 Remember that to read data from a CSV, you can use code similar to this:
 \begin{lstlisting}[language=Python]
