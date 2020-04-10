@@ -144,7 +144,7 @@ def findAll(x, y, constraint=None):
                 returnData["Y values"].append(x[key][y])
     return returnData
 
-byDay = {0: {"Date": "01/22", "Confirmed": 555, "Deaths": 0, "Recovered": 0}, 1: {"Date": "01/23", "Confirmed": 653, "Deaths": 0, "Recovered": 30}, 2: {"Date": "01/24", "Confirmed": 941, "Deaths": 26, "Recovered": 36}}
+byDay = {0: {"Date": "01/22", "Confirmed": 555, "Deaths": 0, "Recoveries": 0}, 1: {"Date": "01/23", "Confirmed": 653, "Deaths": 0, "Recoveries": 30}, 2: {"Date": "01/24", "Confirmed": 941, "Deaths": 26, "Recoveries": 36}}
 data = sum(byDay, "Deaths", ("Confirmed", 2000))
 
 #data = {"X values": [0,1], "Y values": [0,0], "Constraint": ("Confirmed", 2000)}
