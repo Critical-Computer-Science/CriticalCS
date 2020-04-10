@@ -10,10 +10,13 @@
 \usepackage{hyperref}
 
 \usepackage{color}
+\usepackage[coloroftodonotes]{todonotes}
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\duedate}[1]{\date{\textbf{Due: #1}}}
 
 
 \lstset{frame=tb,
@@ -73,9 +76,10 @@
 }
 
 
-\title{\textbf{Coronavirus/Covid-19 Data Analysis}}
+\title{\textbf{CoViD-19 Data Analysis}}
 \author{\textit{Dictionary data structure, TKinter data visualization, ethics and social consequences}\\\textit{of medical data and data ethics, basic statistical analysis}}
-\date{Due date}
+
+\duedate{\todo{due date here}}
 
 
 \begin{document}
@@ -121,13 +125,17 @@ data_file.close()
 \end{Part}
 
 \begin{Part}{Analysis Functions}{Design and implement functions to analyze the data}
-\null\quad\quad In this part, you will be designing, implementing, and testing algorithms to perform various statistical analyses of the data. The goal of this exercise is to get you used to manipulated data and finding specific attributes in datasets.\\
-\null\quad\quad You won't need to be an expert in statistical analysis for this one. We'll provide you with the operations we'd like you to implement and pseudo-code algorithms to provide a framework for your algorithms. However, it will ultimately be up to you to design and implement them.\\
-\null\quad\quad Your functions will need to take 3 parameters: the first parameter will be the X-axis values in a graph; the second parameter will be the Y-axis values in a graph; the third parameter will be the constraint on the data in the form of a tuple: (category, value) where the value is the maximum (i.e. cap) that will be considered, though this parameter will have a default value of None, which signifies a general comparison of "x" and "y" parameters. Your functions will return a dictionary that will be passed into a TKinter interface in Part 3. This returned dictionary will have the following categories:
+
+\null\quad\quad
+In this part, you will be designing, implementing, and testing algorithms to perform various statistical analyses of the data. The goal of this exercise is to get you used to manipulated data and finding specific attributes in datasets.\\
+
+You won't need to be an expert in statistical analysis for this one. We'll provide you with the operations to implement and pseudo-code to provide a framework for your algorithms. However, it will ultimately be up to you to design and implement them.\\
+
+Your functions will need to take 3 parameters: the first parameter will be the X-axis values in a graph; the second parameter will be the Y-axis values in a graph; the third parameter will be the constraint on the data in the form of a tuple: \texttt{(category, value)} where the latter is the maximum value that will be considered (this parameter will have a default value of \texttt{None} which signifies a general comparison of $x$ and $y$ parameters). Your functions will return a dictionary that will be passed into a TKinter interface in Part 3. This returned dictionary will have the following categories:
 \begin{itemize}
-    \item "X values"
-    \item "Y values"
-    \item "Constraint"
+    \item \texttt{"X values"}
+    \item \texttt{"Y values"}
+    \item \texttt{"Constraint"}
 \end{itemize}
 Please make sure your keys match these exactly, as they will be used in the provided code. As an example:
 \begin{lstlisting}[language=Python]
@@ -144,41 +152,48 @@ def findAll(x, y, constraint=None):
                 returnData["Y values"].append(x[key][y])
     return returnData
 
-byDay = {0: {"Date": "01/22", "Confirmed": 555, "Deaths": 0, "Recoveries": 0}, 1: {"Date": "01/23", "Confirmed": 653, "Deaths": 0, "Recoveries": 30}, 2: {"Date": "01/24", "Confirmed": 941, "Deaths": 26, "Recoveries": 36}}
+byDay = {0: {"Date": "01/22", "Confirmed": 555, "Deaths": 0, "Recoveries": 0},
+         1: {"Date": "01/23", "Confirmed": 653, "Deaths": 0, "Recoveries": 30}, 
+         2: {"Date": "01/24", "Confirmed": 941, "Deaths": 26, "Recoveries": 36}}
 data = sum(byDay, "Deaths", ("Confirmed", 2000))
 
 #data = {"X values": [0,1], "Y values": [0,0], "Constraint": ("Confirmed", 2000)}
 \end{lstlisting}
 \end{Part}
-Of course, your data will be much larger than this and might not be so clearly defined. You'll need to be careful with how you define your algorithms and how you choose to track data points.\newpage
-\large{\textbf{Required operations:}}
+Naturally, your data will be much larger than this and might not be so clearly defined. You'll need to be careful with how you define your algorithms and how you choose to track data points.
+\newpage
+
+\begin{center}
+    \large{\textbf{Required Operations}}
+\end{center}
 \begin{itemize}
     \item Average: This function will return the average value that appears across all data points that match the given parameters. For example:
     \begin{lstlisting}
-    average[dataID]=avg(data if data within constraints for data in x]
+    average[dataID] = avg(data if data within constraints for data in x]
     \end{lstlisting}
     \item Minimum: This function will return the minimum value that appears across all data points that match the given parameters. For example:
     \begin{lstlisting}
-    minimum[dataID]=min(data if data within constraints for data in x)
+    minimum[dataID] = min(data if data within constraints for data in x)
     \end{lstlisting}
     \item Maximum: This function will return the maximum value that appears across all data points that match the given parameters. For examples:
     \begin{lstlisting}
-    maximum[dataID]=max(data if data within constraints for data in x)
+    maximum[dataID] = max(data if data within constraints for data in x)
     \end{lstlisting}
     \item Mode: This function will return the most common value that appears across all data points that match teh given parameter. For example:
     \begin{lstlisting}
-    mode[dataID]=mostCommon(data if data within constraints for data in x)
+    mode[dataID] = mostCommon(data if data within constraints for data in x)
     \end{lstlisting}
     \item findAll: This function will return all values that appear across all data points that match the given parameter. For example:
     \begin{lstlisting}
-    findAll[dataID]=[data if data within constraints for data in x]
+    findAll[dataID] = [data if data within constraints for data in x]
     \end{lstlisting}
 \end{itemize}
 It is \textbf{VERY IMPORTANT} that your functions have these exact names. If they don't, the backend we're using to convert the dictionaries to graphs won't work.
 \begin{Part}{TKinterface}{Design and implement a UI with TKinter to display your analysis}
 
 \null\quad\quad For this final part of the homework, you will be implementing a TKinter interface that will display your graphs. In the provided files, you will see two files; one of these files contains a MatPlotLib backend that will be used to call your functions and provide the graphs to the TKinter interface; the other is the TKinter interface skeleton that you are to implement.\\
-\null\quad\quad You are to follow the instructions as laid out in the comments in the provided code. Please make sure you meet these specifications exactly. Any variance can cause bugs in your code that can be hard to debug.
+
+\textbf{Make sure to follow the instructions as described in the comments of the provided code}. Please make sure you meet these specifications exactly. Any inconsistencies can cause bugs in your code that can be hard to debug.
 
 \end{Part}\newpage
 \begin{Part}{README}{Final Thoughts}
