@@ -4,7 +4,7 @@ coursework. This is also linked to an
 [Overleaf project](https://www.overleaf.com/read/tnbmsqgzmwdb)
 
 ## Collaborators
-This is a collaborative effort among undergraduate, graduate, and faculty researchers at Rensselaer Polytechnic Institute. While the GitHub contributions page shows me (Audrey Beard) as the primary contributor, this is due to our tech stack (My Overleaf account synced to my GitHub repo for convenience).
+This is a collaborative effort among undergraduate, graduate, and faculty researchers at Rensselaer Polytechnic Institute. While the GitHub contributions page shows me (Audrey Beard) as the primary contributor, this is due to our tech stack (My Overleaf account synced to my GitHub repo for convenience) and should not be viewed as representative.
 
 Our contributors include (in order of last name):
 
