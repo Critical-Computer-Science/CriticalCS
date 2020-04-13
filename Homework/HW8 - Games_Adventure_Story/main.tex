@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{upquote,textcomp}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{hyperref}
+
+\usepackage{color}
+
+\usepackage[coloroftodonotes]{todonotes}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+
+\lstset{frame=tb,
+  language=,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  keepspaces=true,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{black},
+  keywordstyle=\color{black},
+  commentstyle=\color{black},
+  stringstyle=\color{black},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{mygray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{mygreen},
+  stringstyle=\color{mymauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\textwidth  6.5in
+\oddsidemargin +0.0in
+\evensidemargin +0.0in
+\textheight 9.0in
+\topmargin -0.5in
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+
+
+\setcounter{part}{1}
+
+\newenvironment{Part}[2]
+{
+    \begin{center}
+        \Large\textbf{Part \thepart: #1}\\
+        \large\textit{#2}
+        \stepcounter{part}
+    \end{center}
+}
+
+
+\title{\textbf{Homework name}}
+\author{\textit{Topics covered}}
+\date{Due date}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+\maketitle
+
+Sample code:
+\begin{lstlisting}[language=Python]
+    print("Hello world")
+\end{lstlisting}
+
+Sample parts:\\
+\begin{Part}{Sample code}{Some sample code}
+\begin{lstlisting}[language=Python]
+    ##This is dummy code
+    x=0
+    y=5
+    if x!= y:
+        print("Well look at that")
+\end{lstlisting}
+\end{Part}
+
+\begin{Part}{Sample Text}{Some dummy text}
+Look at this \textit{\color{red}Beautiful} text! You'll find a TODO note\todo{here}.
+\end{Part}
+
+\end{document}
