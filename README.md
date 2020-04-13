@@ -1,5 +1,9 @@
 # CriticalCS
-Repository for all things Critical CS research!
+This is a collaborative effort among undergraduate, graduate, and faculty researchers at Rensselaer Polytechnic Institute. While the GitHub contributions page shows me (Audrey Beard) as the primary contributor, this is due to our tech stack (My Overleaf account synced to my GitHub repo for convenience).
+
+Our contributors include:
+
+- Jesse Ellin
 
 It contains all former and existing work toward the Critical Computer Science
 project. This is also linked to an
