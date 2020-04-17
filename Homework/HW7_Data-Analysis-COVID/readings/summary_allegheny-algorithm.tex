@@ -9,6 +9,7 @@
 \usepackage{natbib}
 \usepackage{graphicx}
 
+
 \begin{document}
 
 \maketitle
@@ -16,7 +17,90 @@
 \tableofcontents
 \newpage
 
-\section{}
+\section{Definitions}
+    \begin{itemize}
+        \item \textbf{Subjectivity} is the quality of state of belonging to reality \textit{as perceived}, rather than independent of mind
+        \begin{itemize}
+            \item Influenced by personal opinions and feelings
+            \item Contrast this with \textbf{objectivity}, which deals with facts and conditions that are not influenced by personal feelings or interpretations
+        \end{itemize}
+        \item In the context of CS, \textbf{mining} is the act of discovering interesting and useful patterns and relationships in large volumes of data, often done through algorithms
+        \item \textbf{Abstraction} is the “bracketing [of] unnecessary information from diverse components in a system” and is a core logical framework and practice. 
+        \item \textbf{Outcome Variables} are what are measured to “indicate the phenomenon” a model is trying to predict (pg. 13)
+        \item A \textbf{proxy} is a variable that is used as a “stand-in” for another variable since it is often easier to collect or measure.
+        \item \textbf(Predictive Variables} are pieces of data in a data set which correlate with the outcome variables.
+        \item \textbf(Validation Data} is used to test the performance of a model.
+    \end{itemize}
+
+
+\section{Learning Objectives}
+    Students must:
+    \begin{itemize}
+        \item Understand how predictive models are constructed
+        \item Recognize the inherent human bias and the influence of systems of inequality in the creation of models and algorithms
+        \item Acknowledge the real-world implications of predictive models and algorithms in general
+    \end{itemize}
+
+
+\section{Summary}
+    \begin{itemize}
+        \item The narrow definitions of abuse and neglect often overlap with “many struggles among poor families” (pg. 3)
+        \item A team of researchers from New Zealand developed a predictive model for prenatal maltreatment that would trigger intervention. The model was criticized for making false predictions for 70% of test cases and for being a “tool of the surveillance of the poor”. (pg. 9)
+        \item “The pairing of the human discretion of intake screeners... with the ability to deep dive into the historical data provided by the predictive model is the most important fail-safe of the system” (pg. 11)
+        \item It is critical for algorithms, especially those with drastic implications, to have human and subjective input in order to prevent mistakes. 
+        \item Although the scores from the predictive model are not intended to make decisions, an ethical review found that they can make workers “question their judgement” as they believe the model is “objective and neutral” (pg. 11)
+        \item Even though the model can identify patterns, it is often wrong when making judgements on cases. (pg 12).
+        \item The intended use of the model was for it to support the workers in making decisions, but it had the unintended effect of training the workers and causing them to doubt their own skills (pg 12).
+        \item “Models are opinions embedded in mathematics” (pg 13)
+        \item The process of creating models and deciding what information is included and what information is not included reflects the priorities and decisions of the creators.
+        \item Meaningful models cannot be constructed with insufficient/sparse data. (pg. 13)
+        \item “Predictive modeling requires clear, unambiguous measures with lots of associated data in order to function accurately”. (pg. 14)
+        \item Although statistical methods such as regression filters variables that correlate highly with the outcome, correlation does not equal causation and should not be taken as such. (pg 14)
+        \item There might be another variable not being measured that influences the correlation.
+        \item “A model’s predictive algorithm is compromised when outcome variables are subjective”. (pg. 15)
+        \item The model did not account for the racial and socioeconomic bias in the referral step which caused flawed and dangerous data to be used as inputs in the algorithm. (pg. 21-23)
+        \item “By relying on data that is only collected on families using public resources, the ASFT unfairly targets the poor for welfare scrutiny”. (pg 24)
+        \item The increased collection of data has put more burdens on the people the system is collecting data about which creates more red tape and makes it harder for them to leave the system (pg. 27).
+        \item Families would rather a human make decisions about their case rather than a computer because humans can “change their opinion” with new data. (pg. 31) 
+    \end{itemize}
+
+
+\section{Common Questions}
+    \begin{itemize}[\textbf{Q:}]
+        \item Can truly objective predictive models be made?
+        \begin{itemize}[]
+            \item[\textbf{A:}] It is impossible to create a truly objective model since the models are constructed by people whose biases and experiences are reflected in the model. However, it is the responsibility of the creators and the people using these models to recognize these biases, different perspectives, and the implications of these models. Also, a more comprehensive model can be made through integrating other models.
+            \item[\textbf{Follow-up:}] Can you think of a truly objective piece of technology?
+        \end{itemize}
+        \item The model was doing its job in predicting potentially harmful situations, why does it matter if it targeted certain racial and socioeconomic groups?
+        \begin{itemize}[]
+            \item[\textbf{A:}] Poverty is harmful for a child’s welfare, but it does not necessitate taking a child away from their home and family. The model was flawed because it targeted African-American, Native American, and poor families at disproportionate rates. There is no evidence to prove that neglect and abuse happens more along racial or socioeconomic lines, the flaws were created by racist and discriminatory systems in our society.
+            \item[\textbf{Follow-up:}] How do societal systems influence your life? How they influence people you know?
+        \end{itemize}
+        \item Is this saying that all models are bad?
+        \begin{itemize}[]
+            \item[\textbf{A:}] Definitely not! Models are natural consequences of trying to understand and react to the world. We just need to be careful about what data we use to create those models, how we act on those models, and how we formalize them.
+            \item[\textbf{Follow-up:}] Some models are bad, or at least can’t be good. Based on your worldview and values, can you think of a model that you would be uncomfortable with no matter what?
+        \end{itemize}
+    \end{itemize}
+
+\section{Critical Question}
+    How would you alter the “Allegheny Algorithm” to create more “fair” outcomes? Do you think there is a way to make it completely fair? 
+
+    \subsubsection{Example Response: Full Credit}
+        The algorithm could take into account data that does not only consist of people who use public services, as they tend to be from a lower socioeconomic status. Also, instead of solely focusing on referrals of child neglect and endangerment, the algorithm could also take into account past history, such as frequency of past incidentsThat way, there is less chance for false positives. Also, the algorithm should not take into account frequency of calls in the geographic area, as that is not a strong indicator of the treatment of the child by their guardian. 
+
+    \subsubsection{Example Response: Half Credit}
+        The model could be improved by using neighborhood risk factors as a data point since a child that lives in a dangerous area is more likely to be put in harm’s way. It can also be improved by taking into account the jobs of the child’s parents.
+
+        \subsubsection{Suggestions}
+            This answer attempts to answer the question but fails to offer any meaningful improvements. The mention of neighborhood risk factors and job status can be important, but are still likely to discriminate along racial and socioeconomic lines. 
+
+    \subsubsection{Example Response: No Credit}
+        The model is okay the way it is because it is the job of the screeners to worry about the ethics, not the job of the people creating the algorithm.
+
+        \subsubsection{Suggestions}
+            This response misses the point of the selected chapter and ignores the conclusions made by Virginia Eubanks. The response should have offered ways to improve the algorithm, as it is clear that it has dangerous flaws and is not as effective as it should be. 
 
 %\begin{figure}[h!]
 %\centering
