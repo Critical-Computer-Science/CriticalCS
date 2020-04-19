@@ -88,14 +88,42 @@
 
 \begin{Part}{Designing Your Story}{Write and create structural framework of the story}
 
-\null\quad\quad
-The data provided in the file \textbf{COVID19.csv} contains data in a time-frame from January 22, 2020 to February 8, 2020 that contains confirmed cases, deaths, and recoveries of CoViD-19.
-Taken from the README of this dataset: “There are a total of 60,371 confirmed cases worldwide, with 59,804 in Mainland China. Sadly at least 1367 people have died from this virus.”\\
+In this part you will be writing your own choose-your-own adventure story which should focus on or be based around one or more of the topics that were explored in the readings for the previous assignments. There is no limit to how creative the story can be, but it should have a clear structure and progression of events. After developing the story, you will create a visual representation of your story in the form of a \textbf{Storyboard}, which will contain nodes such as \textbf{Storypoints}, as seen in the diagram below.
 
-This dataset captures the most recent data (as of this writing) from global outbreak information.
-As you can probably guess, the data is now outdated. The goal of this homework is not to do a real-time analysis of the current situation, but rather to use a relevant and grave situation to examine how data and numbers can be manipulated to portray different things.\\
 
-For this part of the homework, you will be expected to do the following:
+A \textbf{divergence} is a branching point in the story where the player can make two or more choices that lead to different events.
+
+A \textbf{convergence} is a story event that can be reached by more than one path.
+
+\textbf{Path length} is the shortest number of “steps” needed to get from the starting event to an ending event. The diagram above, for example, illustrates a path length of 4.
+
+An \textbf{ending event} is the point that concludes the story, and gives the players the option to end the story or restart the game.
+
+Each Storypoint will function as a point in the story where the user can make a decision to progress further in the game, as it either must terminate or have 2 child nodes. You should have a minimum path length of 3, at least one path length of 4, and no more than 3 children for a node. It should also have at least 4 divergences, 1 convergence and at least 3 possible endings.
+\end{Part}
+
+\begin{Part}{Building Your Custom Classes}{Creating the Storypoint, Storyboard, and Driver Classes}
+
+Next, you will be implementing the function of the game through 3 custom classes:\\
+\begin{itemize}
+    \item {Storypoint - this class should act as a template for the nodes mentioned above. It should contain a list of children (next nodes in the game progression), the text to be displayed at the corresponding point in the game, and a list of the user input commands that will be used to continue to the next Storypoint.}
+    
+    \item {Storyboard - the purpose of this class is to contain the initial Storypoint (beginning node), ending Storypoints, and rest of the Storypoints, as well as to have any additional helper functions.}
+    
+    \item {Driver - this class will be used to navigate the Storyboard. It will be used to keep track of the current Storypoint, any previous Storypoints, and any data or statistics that are pertinent to decisions in the game (character information etc.)}
+    
+\end{itemize}
+\end{Part}
+
+
+\begin{Part}{Implementing the Classes}{Putting it All Together}
+
+In this part, you will use the classes you created in the previous section to create the choose-your-own-adventure game. As stated previously, each decision in the story must have its own storypoint and options of user input that will allow the user to move to the next point in the story. The game should also allow the user to “play” as many times until they enter a specific end command. It should also output all the decisions the user had made in the play-through as well as any other relevant data after the user ends the game. Make sure to thoroughly test all possible paths to ensure there is a continuous and coherent flow to the game, especially in cases of user error. Aso make sure adheres to the structural requirements above. All paths should lead to an ending event.
+\end{Part}
+
+\begin{Part}{README}{Final Thoughts}
+\null\quad\quad Please respond to the questions in the provided README.txt file and submit it along with your code.
+\end{Part}
 
 Sample code:
 \begin{lstlisting}[language=Python]
