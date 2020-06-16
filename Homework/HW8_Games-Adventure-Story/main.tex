@@ -1,3 +1,5 @@
+% By Sai Avula
+% Edited by Audrey Beard
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
@@ -10,11 +12,16 @@
 
 \usepackage{color}
 
+% Hard figure placement
+\usepackage{float}
+
 \usepackage[coloroftodonotes]{todonotes}
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\audrey}[1]{\todo[color=pink]{#1}}
 
 
 \lstset{frame=tb,
@@ -73,35 +80,74 @@
     \end{center}
 }
 
+\newcommand{\duedate}[1]{\date{\textbf{Due: #1}}}
 
-\title{\textbf{Homework name}}
-\author{\textit{Topics covered}}
-\date{Due date}
+
+\title{\textbf{Build Your Own Choose-Your-Own-Adventure Game}}
+\author{\textit{Custom Class Structures, Loops, Node and Tree Diagrams, Game Design and Development}}
+\duedate{\todo{Due date}}
 
 
 \begin{document}
 \thispagestyle{empty}
 
 \maketitle
+\begin{Part}{Designing Your Story}{Write and create structural framework of the story}
 
-Sample code:
-\begin{lstlisting}[language=Python]
-    print("Hello world")
-\end{lstlisting}
+In this part you will be writing your own choose-your-own adventure story which should focus on or be based around one or more of the topics that were explored in the readings for the previous assignments. There is no limit to how creative the story can be, but it should have a clear structure and progression of events. After developing the story, you will create a visual representation of your story in the form of a \textbf{Storyboard}, which will contain nodes such as \textbf{Storypoints}, as seen in the diagram below.
 
-Sample parts:\\
-\begin{Part}{Sample code}{Some sample code}
-\begin{lstlisting}[language=Python]
-    ##This is dummy code
-    x=0
-    y=5
-    if x!= y:
-        print("Well look at that")
-\end{lstlisting}
+
+A \textbf{divergence} is a branching point in the story where the player can make two or more choices that lead to different events.
+
+A \textbf{convergence} is a story event that can be reached by more than one path.
+
+\textbf{Path length} is the number of “steps” needed to get from the starting event to a specified ending event. In Figure \ref{fig:graph-terminology}, for example, every path in the graph has a path length of four.
+
+An \textbf{ending event} is a point that concludes the story, and gives the players the option to end the story or restart the game.
+
+Each Storypoint will function as a point in the story where the user can make a decision to progress further in the game, as it either must terminate or branch out to at least 2 other child Storypoint\audrey{define} nodes. In order to build a rich story and demonstrate your comprehension, your graph should have:
+\begin{itemize}
+    \item A minimum path length of 3
+    \item At least one path of length 4
+    \item No more than 3 children for any single node
+    \item At least 4 divergences
+    \item At least 1 convergence
+    \item At least 3 possible endings
+\end{itemize}
+
+
+\audrey{what's this section doing here?}
+
+
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.9\textwidth]{Homework/HW8_Games-Adventure-Story/images/graph-terminology.png}}
+    \caption{Examples of various graph sub-structures}
+    \label{fig:graph-terminology}
+\end{figure}
+
 \end{Part}
 
-\begin{Part}{Sample Text}{Some dummy text}
-Look at this \textit{\color{red}Beautiful} text! You'll find a TODO note\todo{here}.
+\begin{Part}{Building Your Custom Classes}{Creating the Storypoint, Storyboard, and Driver Classes}
+Next, you will be implementing the function of the game through three custom classes:
+
+\begin{itemize}
+    \item Storypoint - this class should act as a template for the nodes mentioned above. It should contain a list of children (subsequent events in the game progression), the text to be displayed at the corresponding point in the game, and a list of the user-input commands that will be used to continue to the next Storypoint.
+    
+    \item Storyboard - the purpose of this class is to contain the initial Storypoint (beginning node), ending Storypoints, and rest of the Storypoints, as well as contain any additional helper functions.
+    
+    \item Driver - this class will be used to navigate the Storyboard. It will be used to keep track of the current Storypoint, any previous Storypoints, and any data or statistics that are pertinent to decisions in the game (character information etc.)
+    
+
+\end{itemize}
+\end{Part}
+
+\begin{Part}{Implementing the Classes}{Putting it All Together}
+In this part, you will use the classes you created in the previous section to create the choose-your-own-adventure game. As stated previously, each decision in the story must have its own Storypoint and options of user input that will allow the user to move to the next point in the story. The game should also allow the user to “play” as many times as they want (until they enter a specific end command). It should also output all the decisions the user had made in the play-through as well as any other relevant data after the user ends the game. Make sure to thoroughly test all possible paths to ensure there is a continuous and coherent flow to the game, especially in cases of user error. Also make sure it adheres to the structural requirements above. All paths should lead to an ending event.
+\end{Part}
+
+\begin{Part}{README}{Final Thoughts}
+Please respond to the questions in the provided README.txt file and submit it along with your code.
 \end{Part}
 
 \end{document}
