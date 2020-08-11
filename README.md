@@ -16,12 +16,14 @@ Our contributors include (in order of last name):
 - Richard Gonzalez
 - Kevin Liu
 - Austin Lupi
+- Alex Jenseth
 - James W. Malazita
 - Max Marshall
 - Xavier Marshall
 - Naya Murdock
 - Ohad Nir
 - Antonio Orta
+- Brookelyn Parslow
 - Korryn Resetar
 
 
