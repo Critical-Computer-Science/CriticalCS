@@ -1,0 +1,145 @@
+% AUTHOR NAME HERE
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{upquote,textcomp}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{url}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{fullpage}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+}
+
+% Hard figure placement
+\usepackage{float}
+
+\usepackage{color}
+
+\usepackage[coloroftodonotes]{todonotes}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\duedate}[1]{\date{\textbf{Due: #1}}}
+
+
+\lstset{frame=tb,
+  language=,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  keepspaces=true,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{black},
+  keywordstyle=\color{black},
+  commentstyle=\color{black},
+  stringstyle=\color{black},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{mygray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{mygreen},
+  stringstyle=\color{mymauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\textwidth  6.5in
+\oddsidemargin +0.0in
+\evensidemargin +0.0in
+\textheight 9.0in
+\topmargin -0.5in
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+
+
+\setcounter{part}{1}
+
+\newenvironment{Part}[2]
+{
+    \begin{center}
+        \Large\textbf{Part \thepart: #1}\\
+        \large\textit{#2}
+        \stepcounter{part}
+    \end{center}
+}
+
+\title{\textbf{Social Media Sentiment Analysis}}
+\author{\textit{Custom Class Structures, Text Parsing, Sentiment Analysis, Socio-Political Analysis}}
+\duedate{\todo{due date}}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+\maketitle
+
+\begin{Part}{Designing the User}{Design and Build Custom Data Structure}
+
+As computers evolved to be faster, smaller, and cheaper, they became an integral part of life in the 21st century. At the same time, Social Media was developed and allowed connecting people from across the world. In 2019, Facebook reached 2.50 billion users, and 243,000 photos were uploaded per minute. Due to the extensive overwhelming traffic, Facebook fails to capture and remove all of the posts that do not follow the company’s guidelines.\\
+
+Facebook was accused numerous times of not being able to monitor their site. However, it isn’t a reasonable expectation to hire people to review every post published. One way to identify inappropriate posts is through computer data parsing and analysis. An algorithm can search the text for keywords that are not within the site policies and flag the post. Posts that include photos can be analyzed through machine vision and ensure that links are directed to safe sites. In this homework, you are tasked with creating such a program for a social media company.\\
+
+Here are some links to social media site policies. Skim through them to get ideas about the content you may want to filter.
+\begin{itemize}
+    \item \href{https://www.facebook.com/help/212826392083694?helpref=uf_permalink}{Facebook}
+    \item \href{https://help.instagram.com/477434105621119}{Instagram}
+    \item \href{https://help.twitter.com/en/rules-and-policies/twitter-rules}{Twitter}
+    \item \href{https://www.youtube.com/about/policies/#community-guidelines}{Youtube}
+\end{itemize}\\
+
+Start by writing a User class that stores the user’s name, the date the account was created, the number of posts made, the number of posts flagged, and some data structure that stores the user's posts. The user’s name and the date the account was created should be passed into your constructor and contained as member variables in your class. 
+
+\end{Part}
+
+
+
+\begin{Part}{Pulling the Data}{Parsing the Text and Assigning Post Scores}
+
+Next, write a class function parsePost that takes a string as input, extracts individual words, and stores them. The function will return a list of words with no punctuation. It’s recommended to look at posts.txt and consider how posts are structured.\\
+
+Before moving on to the next function, think about how your program will score a post. We provided a function makeDictionary that returns a dictionary where the key is a word, and the value is an integer that specifies if the word is positive(1) or negative(-1). Brainstorm how your program will use this dictionary. You will be graded by the accuracy of your function. Consider how harsh your scoring strategy is. It’s essential for your approach not to be too strict or lenient to reduce false positives and false negatives. Write class function scorePost, which takes a list of words and returns a boolean.\\
+
+Your final class function post combines the last two functions. post takes a string as input. Passes it to parsePost and stores the returned list. Then gives the list to scorePost. If the post passes, print it, if it fails, add a flag to the user and print a message saying, “The post is suspected of violating company guidelines. Your account has <# flagged post> flags.”. If the user has 3 flagged posts, print a message saying, “Account suspended. You received 3 flags on your account.” From there on out, the user will not have any more posts printed.
+
+
+\end{Part}
+
+
+\begin{Part}{"Main"}{Writing the Operational Code}
+
+Start by downloading the sample post data posts.txt. Look through the file and see how it’s structured. Write a function that takes a filename as a parameter, opens the file, and parses the text into individual posts. Store the posts in a data structure of your choice. Keep in mind that each post has a user associated with it. The function should also create User objects whenever a new user is found. The user’s name and date the account was created defines a user.\\
+
+Have the program run through all the posts. In the end, print the number of accounts suspended and the number of posts flagged. You may need to write a helper function in your class or main file.
+
+
+\end{Part}
+
+
+\begin{Part}{README}{Final Thoughts}
+Please respond to the questions in the provided README.txt file and submit it along with your code.
+\end{Part}
+
+
+\end{document}

@@ -1,0 +1,203 @@
+% Authors: Jesse Ellin and Sai Avula
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{upquote,textcomp}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{hyperref}
+
+\usepackage{color}
+\usepackage[coloroftodonotes]{todonotes}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\duedate}[1]{\date{\textbf{Due: #1}}}
+
+
+\lstset{frame=tb,
+  language=,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  keepspaces=true,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{black},
+  keywordstyle=\color{black},
+  commentstyle=\color{black},
+  stringstyle=\color{black},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{mygray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{mygreen},
+  stringstyle=\color{mymauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\textwidth  6.5in
+\oddsidemargin +0.0in
+\evensidemargin +0.0in
+\textheight 9.0in
+\topmargin -0.5in
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+
+
+\setcounter{part}{1}
+
+\newenvironment{Part}[2]
+{
+    \begin{center}
+        \Large\textbf{Part \thepart: #1}\\
+        \large\textit{#2}
+        \stepcounter{part}
+    \end{center}\vspace{-0.5cm}
+}
+
+
+\title{\textbf{CoViD-19 Data Analysis}}
+\author{\textit{Dictionary data structure, TKinter data visualization, ethics and social consequences}\\\textit{of medical data and data ethics, basic statistical analysis}}
+
+\duedate{\todo{due date here}}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+\maketitle
+
+\begin{Part}{Prepping the data}{Pull the data from the CSV file and prep it for analysis}
+
+\null\quad\quad
+The data provided in the file \textbf{COVID19.csv} contains data in a time-frame from January 22, 2020 to February 8, 2020 that contains confirmed cases, deaths, and recoveries of CoViD-19.
+Taken from the README of this dataset: “There are a total of 60,371 confirmed cases worldwide, with 59,804 in Mainland China. Sadly at least 1367 people have died from this virus.”\\
+
+This dataset captures the most recent data (as of this writing) from global outbreak information.
+As you can probably guess, the data is now outdated. The goal of this homework is not to do a real-time analysis of the current situation, but rather to use a relevant and grave situation to examine how data and numbers can be manipulated to portray different things.\\
+
+For this part of the homework, you will be expected to do the following:
+\begin{itemize}
+    \item Read the data in from the CSV file
+    \item Create a nested dictionary and store the data using the following categories:
+    \begin{itemize}
+        \item Day
+        \item Date
+        \item Confirmed
+        \item Deaths
+        \item Recoveries
+    \end{itemize}
+\end{itemize}
+Example:
+\begin{lstlisting}[language=Python]
+dataPointID = 0
+dataPoints_byDay = dict()
+dataPoints_byDay[dataPointID]= { "Date": "01/22", "Confirmed": 555, "Deaths": 0, "Recoveries": 0}
+\end{lstlisting}
+Remember that to read data from a CSV, you can use code similar to this:
+\begin{lstlisting}[language=Python]
+data_file = open("filename.csv",'r')
+for line in data_file:
+    data = line.strip().split(",")
+    #Do the things with the data
+data_file.close()
+\end{lstlisting}
+\end{Part}
+
+\begin{Part}{Analysis Functions}{Design and implement functions to analyze the data}
+
+\null\quad\quad
+In this part, you will be designing, implementing, and testing algorithms to perform various statistical analyses of the data. The goal of this exercise is to get you used to manipulated data and finding specific attributes in datasets.\\
+
+You won't need to be an expert in statistical analysis for this one. We'll provide you with the operations to implement and pseudo-code to provide a framework for your algorithms. However, it will ultimately be up to you to design and implement them.\\
+
+Your functions will need to take 3 parameters: the first parameter will be the X-axis values in a graph; the second parameter will be the Y-axis values in a graph; the third parameter will be the constraint on the data in the form of a tuple: \texttt{(category, value)} where the latter is the maximum value that will be considered (this parameter will have a default value of \texttt{None} which signifies a general comparison of $x$ and $y$ parameters). Your functions will return a dictionary that will be passed into a TKinter interface in Part 3. This returned dictionary will have the following categories:
+\begin{itemize}
+    \item \texttt{"X values"}
+    \item \texttt{"Y values"}
+    \item \texttt{"Constraint"}
+\end{itemize}
+Please make sure your keys match these exactly, as they will be used in the provided code. As an example:
+\begin{lstlisting}[language=Python]
+def findAll(x, y, constraint=None):
+    returnData = {"X values": [], "Y values": [], "Constraint": constraint}
+    if constraint is None:
+        for key in x.keys():
+            returnData["X values"].append(key)
+            returnData["Y values"].append(x[key][y])
+    else:
+        for key in x.keys():
+            if x[key][contraint[0]] <= constraint[1]:
+                returnData["X values"].append(key)
+                returnData["Y values"].append(x[key][y])
+    return returnData
+
+byDay = {0: {"Date": "01/22", "Confirmed": 555, "Deaths": 0, "Recoveries": 0},
+         1: {"Date": "01/23", "Confirmed": 653, "Deaths": 0, "Recoveries": 30}, 
+         2: {"Date": "01/24", "Confirmed": 941, "Deaths": 26, "Recoveries": 36}}
+data = sum(byDay, "Deaths", ("Confirmed", 2000))
+
+#data = {"X values": [0,1], "Y values": [0,0], "Constraint": ("Confirmed", 2000)}
+\end{lstlisting}
+\end{Part}
+Naturally, your data will be much larger than this and might not be so clearly defined. You'll need to be careful with how you define your algorithms and how you choose to track data points.
+\newpage
+
+\begin{center}
+    \large{\textbf{Required Operations}}
+\end{center}
+\begin{itemize}
+    \item Average: This function will return the average value that appears across all data points that match the given parameters. For example:
+    \begin{lstlisting}
+    average[dataID] = avg(data if data within constraints for data in x]
+    \end{lstlisting}
+    \item Minimum: This function will return the minimum value that appears across all data points that match the given parameters. For example:
+    \begin{lstlisting}
+    minimum[dataID] = min(data if data within constraints for data in x)
+    \end{lstlisting}
+    \item Maximum: This function will return the maximum value that appears across all data points that match the given parameters. For examples:
+    \begin{lstlisting}
+    maximum[dataID] = max(data if data within constraints for data in x)
+    \end{lstlisting}
+    \item Mode: This function will return the most common value that appears across all data points that match teh given parameter. For example:
+    \begin{lstlisting}
+    mode[dataID] = mostCommon(data if data within constraints for data in x)
+    \end{lstlisting}
+    \item findAll: This function will return all values that appear across all data points that match the given parameter. For example:
+    \begin{lstlisting}
+    findAll[dataID] = [data if data within constraints for data in x]
+    \end{lstlisting}
+\end{itemize}
+It is \textbf{VERY IMPORTANT} that your functions have these exact names. If they don't, the backend we're using to convert the dictionaries to graphs won't work.
+\begin{Part}{TKinterface}{Design and implement a UI with TKinter to display your analysis}
+
+\null\quad\quad For this final part of the homework, you will be implementing a TKinter interface that will display your graphs. In the provided files, you will see two files; one of these files contains a MatPlotLib backend that will be used to call your functions and provide the graphs to the TKinter interface; the other is the TKinter interface skeleton that you are to implement.\\
+
+\textbf{Make sure to follow the instructions as described in the comments of the provided code}. Please make sure you meet these specifications exactly. Any inconsistencies can cause bugs in your code that can be hard to debug.
+
+\end{Part}\newpage
+\begin{Part}{README}{Final Thoughts}
+\null\quad\quad Please respond to the questions in the provided README.txt file and submit it along with your code.
+\end{Part}
+
+\end{document}
